@@ -14,6 +14,7 @@
 href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 
 <style>
+
 *{
     box-sizing:border-box;
     margin:0;
@@ -49,7 +50,8 @@ body{
     min-height:100vh;
 }
 
-button,input{
+button,
+input{
     font:inherit;
 }
 
@@ -62,7 +64,7 @@ button{
     min-height:100vh;
 }
 
-/* SIDEBAR */
+/* ================= SIDEBAR ================= */
 
 .sidebar{
     width:250px;
@@ -72,6 +74,7 @@ button{
     position:fixed;
     inset:0 auto 0 0;
     z-index:10;
+    overflow-y:auto;
 }
 
 .logo{
@@ -134,7 +137,7 @@ button{
     color:var(--violet);
 }
 
-/* MAIN */
+/* ================= MAIN ================= */
 
 .main{
     margin-left:250px;
@@ -181,7 +184,7 @@ button{
     margin-right:7px;
 }
 
-/* GRID */
+/* ================= GRID ================= */
 
 .grid{
     display:grid;
@@ -260,7 +263,7 @@ button{
     margin-top:5px;
 }
 
-/* CIRCLE */
+/* ================= CIRCLE ================= */
 
 .circle-wrap{
     display:flex;
@@ -322,7 +325,7 @@ button{
     background:var(--purple);
 }
 
-/* FORM */
+/* ================= FORM ================= */
 
 .form-card{
     grid-column:span 12;
@@ -392,7 +395,34 @@ button{
     display:none!important;
 }
 
-/* RESULTS */
+/* ================= RESULT ACTIONS ================= */
+
+.result-actions{
+    display:flex;
+    gap:10px;
+    flex-wrap:wrap;
+}
+
+.action-btn{
+    border:1px solid #403153;
+    background:#181422;
+    color:#fff;
+    border-radius:10px;
+    padding:9px 13px;
+    font-size:11px;
+    font-weight:600;
+}
+
+.action-btn:hover{
+    background:rgba(155,92,255,.14);
+}
+
+.action-btn.pdf{
+    background:linear-gradient(90deg,#7c3aed,#a855f7);
+    border-color:transparent;
+}
+
+/* ================= RESULTS ================= */
 
 .results-section{
     margin-top:18px;
@@ -513,6 +543,7 @@ button{
     place-items:center;
     background:rgba(155,92,255,.12);
     color:var(--violet);
+    flex-shrink:0;
 }
 
 .suggestion-content{
@@ -528,7 +559,7 @@ button{
     margin-top:6px;
 }
 
-/* GOAL */
+/* ================= GOAL ================= */
 
 .target-card{
     margin-top:12px;
@@ -550,7 +581,57 @@ button{
     margin-top:4px;
 }
 
-/* MONTHLY SUMMARY */
+/* ================= DETAILED REPORT ================= */
+
+.detailed-report{
+    grid-column:span 12;
+}
+
+.report-highlight{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:12px;
+}
+
+.highlight-box{
+    padding:15px;
+    border-radius:14px;
+    background:#0f0d16;
+    border:1px solid #292334;
+}
+
+.highlight-box span{
+    display:block;
+    color:var(--muted);
+    font-size:10px;
+    margin-bottom:7px;
+}
+
+.highlight-box strong{
+    font-size:18px;
+}
+
+.report-section{
+    margin-top:18px;
+}
+
+.report-section h4{
+    font-size:13px;
+    margin-bottom:10px;
+    color:#fff;
+}
+
+.report-text{
+    color:var(--muted);
+    font-size:12px;
+    line-height:1.7;
+    padding:14px;
+    border-radius:12px;
+    background:#0f0d16;
+    border:1px solid #292334;
+}
+
+/* ================= MONTHLY SUMMARY ================= */
 
 .summary-card{
     grid-column:span 12;
@@ -645,7 +726,70 @@ button{
     background:rgba(255,180,84,.08);
 }
 
-/* FOOTER */
+/* ================= HISTORY ================= */
+
+.history-card{
+    grid-column:span 12;
+    scroll-margin-top:20px;
+}
+
+.history-list{
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.history-item{
+    padding:15px;
+    background:#0f0d16;
+    border:1px solid #292334;
+    border-radius:14px;
+}
+
+.history-top{
+    display:flex;
+    justify-content:space-between;
+    gap:15px;
+    align-items:center;
+}
+
+.history-date{
+    color:var(--muted);
+    font-size:10px;
+}
+
+.history-values{
+    display:flex;
+    gap:18px;
+    flex-wrap:wrap;
+    margin-top:10px;
+    color:#ddd6e8;
+    font-size:11px;
+}
+
+.history-goal{
+    margin-top:8px;
+    color:var(--violet);
+    font-size:11px;
+}
+
+.history-btn{
+    margin-top:12px;
+    border:1px solid #403153;
+    background:#181422;
+    color:#fff;
+    border-radius:9px;
+    padding:8px 12px;
+    font-size:10px;
+}
+
+.empty-history{
+    padding:30px;
+    text-align:center;
+    color:var(--muted);
+}
+
+/* ================= FOOTER ================= */
 
 footer{
     text-align:center;
@@ -654,7 +798,66 @@ footer{
     margin-top:30px;
 }
 
-/* RESPONSIVE */
+/* ================= PRINT / PDF ================= */
+
+@media print{
+
+    body{
+        background:white!important;
+        color:#111!important;
+    }
+
+    .sidebar,
+    .topbar,
+    #analyse,
+    footer,
+    .result-actions,
+    #history,
+    .no-print{
+        display:none!important;
+    }
+
+    .main{
+        margin:0!important;
+        width:100%!important;
+        padding:0!important;
+    }
+
+    .card{
+        background:white!important;
+        color:#111!important;
+        border:1px solid #ddd!important;
+        box-shadow:none!important;
+        break-inside:avoid;
+    }
+
+    .card-title h3,
+    .report-section h4,
+    .budget-item-top span,
+    .analysis-content strong{
+        color:#111!important;
+    }
+
+    .card-title p,
+    .report-text,
+    .analysis-content p,
+    .analysis-status,
+    .suggestion-content p{
+        color:#444!important;
+    }
+
+    .grid{
+        display:block!important;
+    }
+
+    .results-section,
+    .detailed-report,
+    .summary-card{
+        margin-bottom:15px!important;
+    }
+}
+
+/* ================= RESPONSIVE ================= */
 
 @media(max-width:1000px){
 
@@ -689,6 +892,10 @@ footer{
     .summary-grid{
         grid-template-columns:repeat(2,1fr);
     }
+
+    .report-highlight{
+        grid-template-columns:1fr;
+    }
 }
 
 @media(max-width:650px){
@@ -715,7 +922,9 @@ footer{
     .section-card,
     .side-card,
     .form-card,
-    .summary-card{
+    .summary-card,
+    .history-card,
+    .detailed-report{
         grid-column:span 12;
     }
 
@@ -742,7 +951,13 @@ footer{
     .summary-card{
         overflow-x:auto;
     }
+
+    .history-top{
+        flex-direction:column;
+        align-items:flex-start;
+    }
 }
+
 </style>
 </head>
 
@@ -750,11 +965,12 @@ footer{
 
 <div class="app">
 
-<!-- SIDEBAR -->
+<!-- ================= SIDEBAR ================= -->
 
 <aside class="sidebar">
 
     <div class="logo">
+
         <div class="logo-icon">
             <i class="fa-solid fa-wallet"></i>
         </div>
@@ -763,6 +979,7 @@ footer{
             <h2>Finance AI</h2>
             <span>Personal Advisor</span>
         </div>
+
     </div>
 
     <div class="nav-title">Workspace</div>
@@ -794,233 +1011,752 @@ footer{
             <span>Monthly Summary</span>
         </a>
 
+        <a href="#history">
+            <i class="fa-solid fa-clock-rotate-left"></i>
+            <span>History</span>
+        </a>
+
     </nav>
 
 </aside>
 
 
-<!-- MAIN -->
+<!-- ================= MAIN ================= -->
 
 <main class="main" id="dashboard">
 
-    <!-- TOPBAR -->
+<header class="topbar">
 
-    <header class="topbar">
+    <div>
+
+        <div class="eyebrow">
+            Personal Finance Advisor
+        </div>
+
+        <h1>
+            Make smarter money decisions.
+        </h1>
+
+        <p>
+            Track your income, expenses and monthly savings progress.
+        </p>
+
+    </div>
+
+    <div class="ai-badge">
+
+        <i class="fa-solid fa-sparkles"></i>
+
+        Powered by Gemini AI
+
+    </div>
+
+</header>
+
+
+<section class="grid">
+
+<!-- ================= STAT CARDS ================= -->
+
+<div class="card stat">
+
+    <div class="stat-head">
+
+        <span>
+            Monthly Income
+        </span>
+
+        <div class="stat-icon">
+            <i class="fa-solid fa-indian-rupee-sign"></i>
+        </div>
+
+    </div>
+
+    <h2 id="incomeValue">
+        ₹0
+    </h2>
+
+    <small>
+        <i class="fa-solid fa-arrow-up"></i>
+        Monthly earnings
+    </small>
+
+</div>
+
+
+<div class="card stat">
+
+    <div class="stat-head">
+
+        <span>
+            Total Expenses
+        </span>
+
+        <div class="stat-icon">
+            <i class="fa-solid fa-receipt"></i>
+        </div>
+
+    </div>
+
+    <h2 id="expenseValue">
+        ₹0
+    </h2>
+
+    <small>
+        <i class="fa-solid fa-chart-line"></i>
+        Monthly spending
+    </small>
+
+</div>
+
+
+<div class="card stat">
+
+    <div class="stat-head">
+
+        <span>
+            Actual Savings
+        </span>
+
+        <div class="stat-icon">
+            <i class="fa-solid fa-piggy-bank"></i>
+        </div>
+
+    </div>
+
+    <h2 id="savingValue">
+        ₹0
+    </h2>
+
+    <small>
+        <i class="fa-solid fa-coins"></i>
+        Income − expenses
+    </small>
+
+</div>
+
+
+<!-- ================= BUDGET HEALTH ================= -->
+
+<div class="card section-card" id="budget">
+
+    <div class="card-title">
 
         <div>
-            <div class="eyebrow">Personal Finance Advisor</div>
 
-            <h1>Make smarter money decisions.</h1>
+            <h3>
+                Budget Health
+            </h3>
 
             <p>
-                Track your income, expenses and monthly savings progress.
+                Monitor your monthly financial balance.
             </p>
-        </div>
-
-        <div class="ai-badge">
-            <i class="fa-solid fa-sparkles"></i>
-            Powered by Gemini AI
-        </div>
-
-    </header>
-
-
-    <!-- STAT CARDS -->
-
-    <section class="grid">
-
-        <div class="card stat">
-
-            <div class="stat-head">
-                <span>Monthly Income</span>
-
-                <div class="stat-icon">
-                    <i class="fa-solid fa-indian-rupee-sign"></i>
-                </div>
-            </div>
-
-            <h2 id="incomeValue">₹0</h2>
-
-            <small>
-                <i class="fa-solid fa-arrow-up"></i>
-                Monthly earnings
-            </small>
 
         </div>
 
+        <i class="fa-solid fa-chart-simple"
+           style="color:var(--violet)">
+        </i>
 
-        <div class="card stat">
-
-            <div class="stat-head">
-                <span>Total Expenses</span>
-
-                <div class="stat-icon">
-                    <i class="fa-solid fa-receipt"></i>
-                </div>
-            </div>
-
-            <h2 id="expenseValue">₹0</h2>
-
-            <small>
-                <i class="fa-solid fa-chart-line"></i>
-                Monthly spending
-            </small>
-
-        </div>
+    </div>
 
 
-        <div class="card stat">
+    <div class="circle-wrap">
 
-            <div class="stat-head">
-                <span>Actual Savings</span>
+        <div class="circle" id="healthCircle">
 
-                <div class="stat-icon">
-                    <i class="fa-solid fa-piggy-bank"></i>
-                </div>
-            </div>
+            <div class="circle-content">
 
-            <h2 id="savingValue">₹0</h2>
-
-            <small>
-                <i class="fa-solid fa-coins"></i>
-                Income − expenses
-            </small>
-
-        </div>
-
-
-        <!-- BUDGET HEALTH -->
-
-        <div class="card section-card" id="budget">
-
-            <div class="card-title">
-
-                <div>
-                    <h3>Budget Health</h3>
-
-                    <p>
-                        Monitor your monthly financial balance.
-                    </p>
-                </div>
-
-                <i class="fa-solid fa-chart-simple"
-                   style="color:var(--violet)">
-                </i>
-
-            </div>
-
-
-            <div class="circle-wrap">
-
-                <div class="circle" id="healthCircle">
-
-                    <div class="circle-content">
-
-                        <strong id="healthPercent">
-                            0%
-                        </strong>
-
-                        <span>
-                            Budget Health
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="legend">
-
-                    <div class="legend-row">
-
-                        <span>
-                            <span class="dot"></span>
-                            Income
-                        </span>
-
-                        <strong id="legendIncome">
-                            ₹0
-                        </strong>
-
-                    </div>
-
-
-                    <div class="legend-row">
-
-                        <span>
-                            <span class="dot"></span>
-                            Expenses
-                        </span>
-
-                        <strong id="legendExpenses">
-                            ₹0
-                        </strong>
-
-                    </div>
-
-
-                    <div class="legend-row">
-
-                        <span>
-                            <span class="dot"></span>
-                            Savings
-                        </span>
-
-                        <strong id="legendSavings">
-                            ₹0
-                        </strong>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div>
-
-
-        <!-- GOAL -->
-
-        <div class="card side-card" id="goals">
-
-            <div class="card-title">
-
-                <div>
-                    <h3>Financial Goal</h3>
-
-                    <p>
-                        Your current savings objective.
-                    </p>
-                </div>
-
-                <i class="fa-solid fa-bullseye"
-                   style="color:var(--violet)">
-                </i>
-
-            </div>
-
-
-            <div class="target-card">
-
-                <strong id="goalName">
-                    No goal yet
+                <strong id="healthPercent">
+                    0%
                 </strong>
 
                 <span>
-                    Financial goal
+                    Budget Health
                 </span>
 
             </div>
 
+        </div>
 
-            <div class="target-card">
 
-                <strong id="goalTarget">
+        <div class="legend">
+
+            <div class="legend-row">
+
+                <span>
+                    <span class="dot"></span>
+                    Income
+                </span>
+
+                <strong id="legendIncome">
                     ₹0
                 </strong>
 
+            </div>
+
+
+            <div class="legend-row">
+
                 <span>
-                    Suggested monthly target
+                    <span class="dot"></span>
+                    Expenses
+                </span>
+
+                <strong id="legendExpenses">
+                    ₹0
+                </strong>
+
+            </div>
+
+
+            <div class="legend-row">
+
+                <span>
+                    <span class="dot"></span>
+                    Savings
+                </span>
+
+                <strong id="legendSavings">
+                    ₹0
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= GOALS ================= -->
+
+<div class="card side-card" id="goals">
+
+    <div class="card-title">
+
+        <div>
+
+            <h3>
+                Financial Goal
+            </h3>
+
+            <p>
+                Your current savings objective.
+            </p>
+
+        </div>
+
+        <i class="fa-solid fa-bullseye"
+           style="color:var(--violet)">
+        </i>
+
+    </div>
+
+
+    <div class="target-card">
+
+        <strong id="goalName">
+            No goal yet
+        </strong>
+
+        <span>
+            Financial goal
+        </span>
+
+    </div>
+
+
+    <div class="target-card">
+
+        <strong id="goalTarget">
+            ₹0
+        </strong>
+
+        <span>
+            Suggested monthly target
+        </span>
+
+    </div>
+
+</div>
+
+
+<!-- ================= ANALYSE FORM ================= -->
+
+<div class="card form-card" id="analyse">
+
+    <div class="card-title">
+
+        <div>
+
+            <h3>
+                AI Financial Analysis
+            </h3>
+
+            <p>
+                Enter your monthly financial information.
+            </p>
+
+        </div>
+
+        <i class="fa-solid fa-robot"
+           style="color:var(--violet)">
+        </i>
+
+    </div>
+
+
+    <form id="financeForm">
+
+        <div class="form-grid">
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-indian-rupee-sign"></i>
+                    Monthly Income
+                </label>
+
+                <input
+                    type="number"
+                    id="income"
+                    min="0"
+                    step="0.01"
+                    placeholder="50000"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-utensils"></i>
+                    Food
+                </label>
+
+                <input
+                    type="number"
+                    id="food"
+                    min="0"
+                    step="0.01"
+                    placeholder="7000"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-bus"></i>
+                    Transport
+                </label>
+
+                <input
+                    type="number"
+                    id="transport"
+                    min="0"
+                    step="0.01"
+                    placeholder="3000"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-bowl-food"></i>
+                    Dining
+                </label>
+
+                <input
+                    type="number"
+                    id="dining"
+                    min="0"
+                    step="0.01"
+                    placeholder="2000"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group">
+
+                <label>
+                    <i class="fa-solid fa-gamepad"></i>
+                    Entertainment
+                </label>
+
+                <input
+                    type="number"
+                    id="entertainment"
+                    min="0"
+                    step="0.01"
+                    placeholder="1500"
+                    required
+                >
+
+            </div>
+
+
+            <div class="input-group full">
+
+                <label>
+                    <i class="fa-solid fa-bullseye"></i>
+                    Financial Goal
+                </label>
+
+                <input
+                    type="text"
+                    id="goal"
+                    placeholder="Emergency Fund"
+                    required
+                >
+
+            </div>
+
+        </div>
+
+
+        <button
+            type="submit"
+            class="analyse-btn"
+            id="analyseBtn">
+
+            <i class="fa-solid fa-wand-magic-sparkles"></i>
+
+            Analyse My Finances
+
+        </button>
+
+    </form>
+
+
+    <div
+        class="loading hidden"
+        id="loading">
+
+        <i class="fa-solid fa-spinner fa-spin"></i>
+
+        AI is analysing your finances...
+
+    </div>
+
+</div>
+
+
+<!-- ================= AI BUDGET ================= -->
+
+<div
+    class="card section-card results-section hidden"
+    id="resultsCard">
+
+    <div class="card-title">
+
+        <div>
+
+            <h3>
+                AI Budget Plan
+            </h3>
+
+            <p>
+                Recommended allocation for your income.
+            </p>
+
+        </div>
+
+        <div class="result-actions no-print">
+
+            <button
+                class="action-btn pdf"
+                onclick="saveReportPDF()">
+
+                <i class="fa-solid fa-file-pdf"></i>
+                Save Report as PDF
+
+            </button>
+
+        </div>
+
+    </div>
+
+    <div id="budgetResults"></div>
+
+</div>
+
+
+<!-- ================= SPENDING ANALYSIS ================= -->
+
+<div
+    class="card side-card results-section hidden"
+    id="analysisCard">
+
+    <div class="card-title">
+
+        <div>
+
+            <h3>
+                Spending Analysis
+            </h3>
+
+            <p>
+                AI analysis of your spending habits.
+            </p>
+
+        </div>
+
+        <i class="fa-solid fa-magnifying-glass-chart"
+           style="color:var(--violet)">
+        </i>
+
+    </div>
+
+    <div id="analysisResults"></div>
+
+</div>
+
+
+<!-- ================= SAVING SUGGESTIONS ================= -->
+
+<div
+    class="card form-card results-section hidden"
+    id="savingCard">
+
+    <div class="card-title">
+
+        <div>
+
+            <h3>
+                Saving Suggestions
+            </h3>
+
+            <p>
+                Personalized recommendations from AI.
+            </p>
+
+        </div>
+
+        <i class="fa-solid fa-lightbulb"
+           style="color:var(--violet)">
+        </i>
+
+    </div>
+
+    <ul
+        class="suggestions-list"
+        id="savingResults">
+    </ul>
+
+</div>
+
+
+<!-- ================= DETAILED AI REPORT ================= -->
+
+<div
+    class="card detailed-report hidden"
+    id="detailedReport">
+
+    <div class="card-title">
+
+        <div>
+
+            <h3>
+                Financial Overview
+            </h3>
+
+            <p>
+                Complete AI-generated financial report.
+            </p>
+
+        </div>
+
+        <i class="fa-solid fa-file-invoice-dollar"
+           style="color:var(--violet)">
+        </i>
+
+    </div>
+
+
+    <div class="report-highlight">
+
+        <div class="highlight-box">
+
+            <span>
+                SAVINGS RATE
+            </span>
+
+            <strong id="reportSavingsRate">
+                0%
+            </strong>
+
+        </div>
+
+
+        <div class="highlight-box">
+
+            <span>
+                LARGEST EXPENSE
+            </span>
+
+            <strong id="reportLargestExpense">
+                —
+            </strong>
+
+        </div>
+
+
+        <div class="highlight-box">
+
+            <span>
+                INCOME / EXPENSE RATIO
+            </span>
+
+            <strong id="reportRatio">
+                —
+            </strong>
+
+        </div>
+
+    </div>
+
+
+    <div class="report-section">
+
+        <h4>
+            <i class="fa-solid fa-triangle-exclamation"></i>
+            Spending Alerts
+        </h4>
+
+        <div
+            class="report-text"
+            id="reportAlerts">
+            —
+        </div>
+
+    </div>
+
+
+    <div class="report-section">
+
+        <h4>
+            <i class="fa-solid fa-lightbulb"></i>
+            Smart Suggestions
+        </h4>
+
+        <div
+            class="report-text"
+            id="reportSuggestions">
+            —
+        </div>
+
+    </div>
+
+
+    <div class="report-section">
+
+        <h4>
+            <i class="fa-solid fa-chart-line"></i>
+            Future Prediction
+        </h4>
+
+        <div
+            class="report-text"
+            id="reportPrediction">
+            —
+        </div>
+
+    </div>
+
+
+    <div class="report-section">
+
+        <h4>
+            <i class="fa-solid fa-bullseye"></i>
+            Financial Goal
+        </h4>
+
+        <div
+            class="report-text"
+            id="reportGoal">
+            —
+        </div>
+
+    </div>
+
+
+    <div class="report-section">
+
+        <h4>
+            <i class="fa-solid fa-robot"></i>
+            AI Confidence
+        </h4>
+
+        <div
+            class="report-text"
+            id="reportConfidence">
+            Medium
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- ================= SAVINGS PROGRESS ================= -->
+
+<div class="card section-card">
+
+    <div class="card-title">
+
+        <div>
+
+            <h3>
+                Savings Progress
+            </h3>
+
+            <p>
+                Track your progress towards your monthly saving target.
+            </p>
+
+        </div>
+
+        <i class="fa-solid fa-piggy-bank"
+           style="color:var(--green)">
+        </i>
+
+    </div>
+
+
+    <div style="display:flex;align-items:center;gap:20px">
+
+        <div
+            class="circle"
+            id="savingCircle"
+            style="
+            width:120px;
+            height:120px;
+            background:conic-gradient(
+                var(--green) 0deg,
+                #292333 0deg
+            );
+            ">
+
+            <div class="circle-content">
+
+                <strong id="savingPercent">
+                    0%
+                </strong>
+
+                <span>
+                    Progress
                 </span>
 
             </div>
@@ -1028,533 +1764,309 @@ footer{
         </div>
 
 
-        <!-- ANALYSE FORM -->
+        <div class="legend">
 
-        <div class="card form-card" id="analyse">
+            <div class="legend-row">
 
-            <div class="card-title">
+                <span>
+                    SAVING TARGET
+                </span>
 
-                <div>
-                    <h3>AI Financial Analysis</h3>
-
-                    <p>
-                        Enter your monthly financial information.
-                    </p>
-                </div>
-
-                <i class="fa-solid fa-robot"
-                   style="color:var(--violet)">
-                </i>
+                <strong id="savingTarget">
+                    ₹0
+                </strong>
 
             </div>
 
 
-            <form id="financeForm">
+            <div class="legend-row">
 
-                <div class="form-grid">
+                <span>
+                    CURRENT SAVINGS
+                </span>
 
-                    <div class="input-group">
+                <strong id="currentSavings">
+                    ₹0
+                </strong>
 
-                        <label>
-                            <i class="fa-solid fa-indian-rupee-sign"></i>
-                            Monthly Income
-                        </label>
-
-                        <input
-                            type="number"
-                            id="income"
-                            min="0"
-                            step="0.01"
-                            placeholder="50000"
-                            required
-                        >
-
-                    </div>
+            </div>
 
 
-                    <div class="input-group">
+            <div class="legend-row">
 
-                        <label>
-                            <i class="fa-solid fa-utensils"></i>
-                            Food
-                        </label>
+                <span>
+                    REMAINING
+                </span>
 
-                        <input
-                            type="number"
-                            id="food"
-                            min="0"
-                            step="0.01"
-                            placeholder="7000"
-                            required
-                        >
+                <strong id="remainingSavings">
+                    ₹0
+                </strong>
 
-                    </div>
+            </div>
 
+        </div>
 
-                    <div class="input-group">
+    </div>
 
-                        <label>
-                            <i class="fa-solid fa-bus"></i>
-                            Transport
-                        </label>
-
-                        <input
-                            type="number"
-                            id="transport"
-                            min="0"
-                            step="0.01"
-                            placeholder="3000"
-                            required
-                        >
-
-                    </div>
+</div>
 
 
-                    <div class="input-group">
+<!-- ================= MONTHLY SUMMARY ================= -->
 
-                        <label>
-                            <i class="fa-solid fa-bowl-food"></i>
-                            Dining
-                        </label>
+<div
+    class="card summary-card"
+    id="monthlySummary">
 
-                        <input
-                            type="number"
-                            id="dining"
-                            min="0"
-                            step="0.01"
-                            placeholder="2000"
-                            required
-                        >
+    <div class="card-title">
 
-                    </div>
+        <div>
 
+            <h3>
+                Monthly Report
+            </h3>
 
-                    <div class="input-group">
+            <p>
+                Quick overview of your current financial month.
+            </p>
 
-                        <label>
-                            <i class="fa-solid fa-gamepad"></i>
-                            Entertainment
-                        </label>
+        </div>
 
-                        <input
-                            type="number"
-                            id="entertainment"
-                            min="0"
-                            step="0.01"
-                            placeholder="1500"
-                            required
-                        >
+        <i class="fa-solid fa-calendar-days"
+           style="color:var(--violet)">
+        </i>
 
-                    </div>
+    </div>
 
 
-                    <div class="input-group full">
+    <div class="summary-grid">
 
-                        <label>
-                            <i class="fa-solid fa-bullseye"></i>
-                            Financial Goal
-                        </label>
+        <div class="summary-box income">
 
-                        <input
-                            type="text"
-                            id="goal"
-                            placeholder="Emergency Fund"
-                            required
-                        >
-
-                    </div>
-
-                </div>
-
-
-                <button
-                    type="submit"
-                    class="analyse-btn"
-                    id="analyseBtn">
-
-                    <i class="fa-solid fa-wand-magic-sparkles"></i>
-
-                    Analyse My Finances
-
-                </button>
-
-            </form>
-
+            <div class="summary-label">
+                MONTHLY INCOME
+            </div>
 
             <div
-                class="loading hidden"
-                id="loading">
+                class="summary-value"
+                id="summaryIncome">
 
-                <i class="fa-solid fa-spinner fa-spin"></i>
-
-                AI is analysing your finances...
+                ₹0
 
             </div>
 
         </div>
 
 
-        <!-- AI RESULTS -->
+        <div class="summary-box expense">
 
-        <div
-            class="card section-card results-section hidden"
-            id="resultsCard">
-
-            <div class="card-title">
-
-                <div>
-                    <h3>AI Budget Plan</h3>
-
-                    <p>
-                        Recommended allocation for your income.
-                    </p>
-                </div>
-
-                <i class="fa-solid fa-chart-pie"
-                   style="color:var(--violet)">
-                </i>
-
+            <div class="summary-label">
+                TOTAL EXPENSES
             </div>
 
-            <div id="budgetResults"></div>
+            <div
+                class="summary-value"
+                id="summaryExpenses">
 
-        </div>
-
-
-        <div
-            class="card side-card results-section hidden"
-            id="analysisCard">
-
-            <div class="card-title">
-
-                <div>
-                    <h3>Spending Analysis</h3>
-
-                    <p>
-                        AI analysis of your spending habits.
-                    </p>
-                </div>
-
-                <i class="fa-solid fa-magnifying-glass-chart"
-                   style="color:var(--violet)">
-                </i>
-
-            </div>
-
-            <div id="analysisResults"></div>
-
-        </div>
-
-
-        <div
-            class="card form-card results-section hidden"
-            id="savingCard">
-
-            <div class="card-title">
-
-                <div>
-                    <h3>Saving Suggestions</h3>
-
-                    <p>
-                        Personalized recommendations from AI.
-                    </p>
-                </div>
-
-                <i class="fa-solid fa-lightbulb"
-                   style="color:var(--violet)">
-                </i>
-
-            </div>
-
-            <ul
-                class="suggestions-list"
-                id="savingResults">
-            </ul>
-
-        </div>
-
-
-        <!-- SAVINGS PROGRESS -->
-
-        <div class="card section-card">
-
-            <div class="card-title">
-
-                <div>
-                    <h3>Savings Progress</h3>
-
-                    <p>
-                        Track your progress towards your monthly saving target.
-                    </p>
-                </div>
-
-                <i class="fa-solid fa-piggy-bank"
-                   style="color:var(--green)">
-                </i>
-
-            </div>
-
-
-            <div style="display:flex;align-items:center;gap:20px">
-
-                <div
-                    class="circle"
-                    id="savingCircle"
-                    style="
-                    width:120px;
-                    height:120px;
-                    background:conic-gradient(
-                        var(--green) 0deg,
-                        #292333 0deg
-                    );
-                    ">
-
-                    <div class="circle-content">
-
-                        <strong
-                            id="savingPercent">
-                            0%
-                        </strong>
-
-                        <span>
-                            Progress
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <div class="legend">
-
-                    <div class="legend-row">
-
-                        <span>SAVING TARGET</span>
-
-                        <strong id="savingTarget">
-                            ₹0
-                        </strong>
-
-                    </div>
-
-
-                    <div class="legend-row">
-
-                        <span>CURRENT SAVINGS</span>
-
-                        <strong id="currentSavings">
-                            ₹0
-                        </strong>
-
-                    </div>
-
-
-                    <div class="legend-row">
-
-                        <span>REMAINING</span>
-
-                        <strong id="remainingSavings">
-                            ₹0
-                        </strong>
-
-                    </div>
-
-                </div>
+                ₹0
 
             </div>
 
         </div>
 
 
-        <!-- MONTHLY REPORT -->
+        <div class="summary-box saving">
 
-        <div
-            class="card summary-card"
-            id="monthlySummary">
-
-            <div class="card-title">
-
-                <div>
-                    <h3>Monthly Report</h3>
-
-                    <p>
-                        Quick overview of your current financial month.
-                    </p>
-                </div>
-
-                <i class="fa-solid fa-calendar-days"
-                   style="color:var(--violet)">
-                </i>
-
+            <div class="summary-label">
+                ACTUAL SAVINGS
             </div>
 
+            <div
+                class="summary-value"
+                id="summarySavings">
 
-            <div class="summary-grid">
-
-                <div class="summary-box income">
-
-                    <div class="summary-label">
-                        MONTHLY INCOME
-                    </div>
-
-                    <div
-                        class="summary-value"
-                        id="summaryIncome">
-
-                        ₹0
-
-                    </div>
-
-                </div>
-
-
-                <div class="summary-box expense">
-
-                    <div class="summary-label">
-                        TOTAL EXPENSES
-                    </div>
-
-                    <div
-                        class="summary-value"
-                        id="summaryExpenses">
-
-                        ₹0
-
-                    </div>
-
-                </div>
-
-
-                <div class="summary-box saving">
-
-                    <div class="summary-label">
-                        ACTUAL SAVINGS
-                    </div>
-
-                    <div
-                        class="summary-value"
-                        id="summarySavings">
-
-                        ₹0
-
-                    </div>
-
-                </div>
-
-
-                <div class="summary-box target">
-
-                    <div class="summary-label">
-                        SAVING TARGET
-                    </div>
-
-                    <div
-                        class="summary-value"
-                        id="summaryTarget">
-
-                        ₹0
-
-                    </div>
-
-                </div>
+                ₹0
 
             </div>
-
-
-            <table class="report-table">
-
-                <thead>
-
-                    <tr>
-                        <th>Category</th>
-                        <th>Amount</th>
-                        <th>Status</th>
-                    </tr>
-
-                </thead>
-
-
-                <tbody>
-
-                    <tr>
-
-                        <td>Income</td>
-
-                        <td id="tableIncome">
-                            ₹0
-                        </td>
-
-                        <td>
-                            <span class="status available">
-                                Available
-                            </span>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>Expenses</td>
-
-                        <td id="tableExpenses">
-                            ₹0
-                        </td>
-
-                        <td>
-                            <span class="status spending">
-                                Spending
-                            </span>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>Savings</td>
-
-                        <td id="tableSavings">
-                            ₹0
-                        </td>
-
-                        <td>
-                            <span class="status saved">
-                                Saved
-                            </span>
-                        </td>
-
-                    </tr>
-
-
-                    <tr>
-
-                        <td>Saving Target</td>
-
-                        <td id="tableTarget">
-                            ₹0
-                        </td>
-
-                        <td>
-                            <span class="status target-status">
-                                Target
-                            </span>
-                        </td>
-
-                    </tr>
-
-                </tbody>
-
-            </table>
 
         </div>
 
-    </section>
+
+        <div class="summary-box target">
+
+            <div class="summary-label">
+                SAVING TARGET
+            </div>
+
+            <div
+                class="summary-value"
+                id="summaryTarget">
+
+                ₹0
+
+            </div>
+
+        </div>
+
+    </div>
 
 
-    <footer>
-        Personal Finance Advisor Bot • Powered by AI
-    </footer>
+    <table class="report-table">
+
+        <thead>
+
+            <tr>
+
+                <th>
+                    Category
+                </th>
+
+                <th>
+                    Amount
+                </th>
+
+                <th>
+                    Status
+                </th>
+
+            </tr>
+
+        </thead>
+
+
+        <tbody>
+
+            <tr>
+
+                <td>
+                    Income
+                </td>
+
+                <td id="tableIncome">
+                    ₹0
+                </td>
+
+                <td>
+                    <span class="status available">
+                        Available
+                    </span>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Expenses
+                </td>
+
+                <td id="tableExpenses">
+                    ₹0
+                </td>
+
+                <td>
+                    <span class="status spending">
+                        Spending
+                    </span>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Savings
+                </td>
+
+                <td id="tableSavings">
+                    ₹0
+                </td>
+
+                <td>
+                    <span class="status saved">
+                        Saved
+                    </span>
+                </td>
+
+            </tr>
+
+
+            <tr>
+
+                <td>
+                    Saving Target
+                </td>
+
+                <td id="tableTarget">
+                    ₹0
+                </td>
+
+                <td>
+                    <span class="status target-status">
+                        Target
+                    </span>
+                </td>
+
+            </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+
+<!-- ================= HISTORY ================= -->
+
+<div
+    class="card history-card"
+    id="history">
+
+    <div class="card-title">
+
+        <div>
+
+            <h3>
+                Analysis History
+            </h3>
+
+            <p>
+                Your previous financial analyses.
+            </p>
+
+        </div>
+
+        <button
+            class="action-btn no-print"
+            onclick="loadHistory()">
+
+            <i class="fa-solid fa-rotate"></i>
+            Refresh
+
+        </button>
+
+    </div>
+
+
+    <div
+        class="history-list"
+        id="historyList">
+
+        <div class="empty-history">
+            Loading history...
+        </div>
+
+    </div>
+
+</div>
+
+
+<footer>
+    Personal Finance Advisor Bot • Powered by AI
+</footer>
+
+</section>
 
 </main>
 
@@ -1563,7 +2075,9 @@ footer{
 
 <script>
 
-/* ================= HELPERS ================= */
+/* ==================================================
+   HELPERS
+================================================== */
 
 function money(value){
 
@@ -1572,6 +2086,7 @@ function money(value){
     return "₹" + value.toLocaleString("en-IN",{
         maximumFractionDigits:0
     });
+
 }
 
 
@@ -1584,7 +2099,21 @@ function numberValue(id){
 }
 
 
-/* ================= ELEMENTS ================= */
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replace(/&/g,"&amp;")
+        .replace(/</g,"&lt;")
+        .replace(/>/g,"&gt;")
+        .replace(/"/g,"&quot;")
+        .replace(/'/g,"&#039;");
+
+}
+
+
+/* ==================================================
+   ELEMENTS
+================================================== */
 
 const form =
     document.getElementById("financeForm");
@@ -1596,51 +2125,82 @@ const analyseBtn =
     document.getElementById("analyseBtn");
 
 
-/* ================= FORM ================= */
+let currentReportData = null;
+
+
+/* ==================================================
+   FORM SUBMIT
+================================================== */
 
 form.addEventListener("submit",async function(e){
 
     e.preventDefault();
 
-    const income = numberValue("income");
 
-    const food = numberValue("food");
+    const income =
+        numberValue("income");
 
-    const transport = numberValue("transport");
 
-    const dining = numberValue("dining");
+    const food =
+        numberValue("food");
 
-    const entertainment = numberValue("entertainment");
+
+    const transport =
+        numberValue("transport");
+
+
+    const dining =
+        numberValue("dining");
+
+
+    const entertainment =
+        numberValue("entertainment");
+
 
     const goal =
-        document.getElementById("goal").value.trim();
+        document
+        .getElementById("goal")
+        .value
+        .trim();
 
 
     if(income <= 0){
 
-        alert("Please enter a valid monthly income.");
+        alert(
+            "Please enter a valid monthly income."
+        );
 
         return;
+
     }
 
 
     if(!goal){
 
-        alert("Please enter your financial goal.");
+        alert(
+            "Please enter your financial goal."
+        );
 
         return;
+
     }
 
 
     const expenses = {
+
         Food:food,
+
         Transport:transport,
+
         Dining:dining,
+
         Entertainment:entertainment
+
     };
 
 
     analyseBtn.disabled = true;
+
 
     analyseBtn.innerHTML =
         '<i class="fa-solid fa-spinner fa-spin"></i> Analysing...';
@@ -1651,28 +2211,31 @@ form.addEventListener("submit",async function(e){
 
     try{
 
-        const response = await fetch("/analyse",{
+        const response =
+            await fetch("/analyse",{
 
-            method:"POST",
+                method:"POST",
 
-            headers:{
-                "Content-Type":"application/json"
-            },
+                headers:{
+                    "Content-Type":
+                        "application/json"
+                },
 
-            body:JSON.stringify({
+                body:JSON.stringify({
 
-                income:income,
+                    income:income,
 
-                expenses:expenses,
+                    expenses:expenses,
 
-                goal:goal
+                    goal:goal
 
-            })
+                })
 
-        });
+            });
 
 
-        const data = await response.json();
+        const data =
+            await response.json();
 
 
         if(!response.ok){
@@ -1694,6 +2257,9 @@ form.addEventListener("submit",async function(e){
         );
 
 
+        loadHistory();
+
+
     }catch(error){
 
         console.error(error);
@@ -1707,7 +2273,9 @@ form.addEventListener("submit",async function(e){
 
         loading.classList.add("hidden");
 
+
         analyseBtn.disabled = false;
+
 
         analyseBtn.innerHTML =
             '<i class="fa-solid fa-wand-magic-sparkles"></i> Analyse My Finances';
@@ -1717,7 +2285,9 @@ form.addEventListener("submit",async function(e){
 });
 
 
-/* ================= DISPLAY RESULTS ================= */
+/* ==================================================
+   DISPLAY RESULTS
+================================================== */
 
 function displayResults(
     data,
@@ -1741,11 +2311,6 @@ function displayResults(
             income - totalExpenses
         );
 
-
-    /*
-        AI response can have different
-        structures, so safely handle them.
-    */
 
     let budgetPlan =
         data.budget_plan ||
@@ -1771,10 +2336,14 @@ function displayResults(
     if(typeof budgetPlan === "string"){
 
         try{
+
             budgetPlan =
                 JSON.parse(budgetPlan);
+
         }catch{
+
             budgetPlan = {};
+
         }
 
     }
@@ -1783,10 +2352,14 @@ function displayResults(
     if(typeof spendingAnalysis === "string"){
 
         try{
+
             spendingAnalysis =
                 JSON.parse(spendingAnalysis);
+
         }catch{
+
             spendingAnalysis = [];
+
         }
 
     }
@@ -1795,13 +2368,34 @@ function displayResults(
     if(typeof savingSuggestions === "string"){
 
         try{
+
             savingSuggestions =
                 JSON.parse(savingSuggestions);
+
         }catch{
+
             savingSuggestions = [];
+
         }
 
     }
+
+
+    currentReportData = {
+
+        data:data,
+
+        income:income,
+
+        expenses:expenses,
+
+        totalExpenses:totalExpenses,
+
+        actualSavings:actualSavings,
+
+        goal:goal
+
+    };
 
 
     updateDashboard(
@@ -1829,6 +2423,18 @@ function displayResults(
     );
 
 
+    renderDetailedReport(
+        data,
+        income,
+        expenses,
+        totalExpenses,
+        actualSavings,
+        goal,
+        spendingAnalysis,
+        savingSuggestions
+    );
+
+
     document
         .getElementById("resultsCard")
         .classList.remove("hidden");
@@ -1845,6 +2451,11 @@ function displayResults(
 
 
     document
+        .getElementById("detailedReport")
+        .classList.remove("hidden");
+
+
+    document
         .getElementById("resultsCard")
         .scrollIntoView({
             behavior:"smooth",
@@ -1854,7 +2465,220 @@ function displayResults(
 }
 
 
-/* ================= DASHBOARD ================= */
+/* ==================================================
+   DETAILED REPORT
+================================================== */
+
+function renderDetailedReport(
+    data,
+    income,
+    expenses,
+    totalExpenses,
+    actualSavings,
+    goal,
+    analysis,
+    suggestions
+){
+
+    const savingsRate =
+        income > 0
+        ? (actualSavings / income) * 100
+        : 0;
+
+
+    let largestCategory = "None";
+    let largestAmount = 0;
+
+
+    Object.entries(expenses)
+    .forEach(([category,amount])=>{
+
+        amount =
+            Number(amount) || 0;
+
+
+        if(amount > largestAmount){
+
+            largestAmount = amount;
+
+            largestCategory = category;
+
+        }
+
+    });
+
+
+    const ratio =
+        totalExpenses > 0
+        ? income / totalExpenses
+        : 0;
+
+
+    document.getElementById(
+        "reportSavingsRate"
+    ).textContent =
+        savingsRate.toFixed(1) +
+        "%";
+
+
+    document.getElementById(
+        "reportLargestExpense"
+    ).textContent =
+        largestCategory +
+        " " +
+        money(largestAmount);
+
+
+    document.getElementById(
+        "reportRatio"
+    ).textContent =
+        ratio.toFixed(1) +
+        ":1";
+
+
+    let overspending = [];
+
+
+    if(Array.isArray(analysis)){
+
+        analysis.forEach(item=>{
+
+            const status =
+                String(
+                    item.status || ""
+                ).toLowerCase();
+
+
+            if(
+                status.includes("over") ||
+                status.includes("high") ||
+                status.includes("review")
+            ){
+
+                overspending.push(
+                    item.category ||
+                    item.name ||
+                    "Expense"
+                );
+
+            }
+
+        });
+
+    }
+
+
+    let alertText;
+
+
+    if(overspending.length === 0){
+
+        alertText =
+            "No overspending or negative balance detected. Your current spending appears manageable.";
+
+    }else{
+
+        alertText =
+            "Review the following categories: " +
+            overspending.join(", ") +
+            ".";
+
+    }
+
+
+    document.getElementById(
+        "reportAlerts"
+    ).textContent =
+        alertText;
+
+
+    let suggestionText = [];
+
+
+    if(Array.isArray(suggestions)){
+
+        suggestions.forEach(item=>{
+
+            const title =
+                item.title ||
+                item.suggestion ||
+                item.name ||
+                item.recommendation ||
+                "Saving recommendation";
+
+
+            const amount =
+                Number(
+                    item.amount ||
+                    item.savings ||
+                    0
+                );
+
+
+            if(amount > 0){
+
+                suggestionText.push(
+                    title +
+                    " — Potential saving " +
+                    money(amount)
+                );
+
+            }else{
+
+                suggestionText.push(
+                    title
+                );
+
+            }
+
+        });
+
+    }
+
+
+    if(suggestionText.length === 0){
+
+        suggestionText.push(
+            "Maintain regular savings and review discretionary expenses."
+        );
+
+    }
+
+
+    document.getElementById(
+        "reportSuggestions"
+    ).textContent =
+        suggestionText.join(" • ");
+
+
+    document.getElementById(
+        "reportPrediction"
+    ).textContent =
+        "If your current income and spending habits continue, your next month's balance could increase by approximately " +
+        money(actualSavings) +
+        ".";
+
+
+    document.getElementById(
+        "reportGoal"
+    ).textContent =
+        goal ||
+        "Monthly savings";
+
+
+    document.getElementById(
+        "reportConfidence"
+    ).textContent =
+        data.analysis_source === "Gemini AI"
+        ? "High"
+        : "Medium";
+
+}
+
+
+/* ==================================================
+   DASHBOARD
+================================================== */
 
 function updateDashboard(
     income,
@@ -1902,16 +2726,14 @@ function updateDashboard(
     document.getElementById(
         "goalName"
     ).textContent =
-        goal || "Financial Goal";
+        goal ||
+        "Financial Goal";
 
-
-    /*
-        Default target = 20% of income.
-        AI target can overwrite it below.
-    */
 
     const target =
-        Math.round(income * 0.20);
+        Math.round(
+            income * 0.20
+        );
 
 
     document.getElementById(
@@ -1921,6 +2743,7 @@ function updateDashboard(
 
 
     let health = 0;
+
 
     if(income > 0){
 
@@ -1963,7 +2786,9 @@ function updateDashboard(
 }
 
 
-/* ================= MONTHLY SUMMARY ================= */
+/* ==================================================
+   MONTHLY SUMMARY
+================================================== */
 
 function updateMonthlySummary(
     income,
@@ -2022,6 +2847,7 @@ function updateMonthlySummary(
 
     let percentage = 0;
 
+
     if(target > 0){
 
         percentage =
@@ -2075,7 +2901,9 @@ function updateMonthlySummary(
 }
 
 
-/* ================= BUDGET ================= */
+/* ==================================================
+   BUDGET
+================================================== */
 
 function renderBudget(
     budget,
@@ -2094,33 +2922,31 @@ function renderBudget(
     let entries = [];
 
 
-    if(Array.isArray(budget)){
-
-        entries = budget;
-
-    }else if(
+    if(
         budget &&
-        typeof budget === "object"
+        Array.isArray(
+            budget.fixed_expenses
+        )
     ){
 
         entries =
-            Object.entries(budget)
-            .map(
-                ([category,value])=>({
+            entries.concat(
+                budget.fixed_expenses
+            );
 
-                    category:category,
+    }
 
-                    amount:
-                        typeof value === "object"
-                        ? (
-                            value.amount ||
-                            value.recommended ||
-                            value.budget ||
-                            0
-                        )
-                        : value
 
-                })
+    if(
+        budget &&
+        Array.isArray(
+            budget.variable_expenses
+        )
+    ){
+
+        entries =
+            entries.concat(
+                budget.variable_expenses
             );
 
     }
@@ -2128,19 +2954,71 @@ function renderBudget(
 
     if(entries.length === 0){
 
+        if(Array.isArray(budget)){
+
+            entries = budget;
+
+        }else if(
+            budget &&
+            typeof budget === "object"
+        ){
+
+            entries =
+                Object.entries(budget)
+                .map(
+                    ([category,value])=>({
+
+                        category:category,
+
+                        amount:
+                            typeof value === "object"
+                            ? (
+                                value.amount ||
+                                value.recommended ||
+                                value.budget ||
+                                0
+                            )
+                            : value
+
+                    })
+                );
+
+        }
+
+    }
+
+
+    if(entries.length === 0){
+
         entries = [
+
             {
-                category:"Recommended Spending",
-                amount:income * .7
+                category:
+                    "Recommended Spending",
+
+                amount:
+                    income * .7
+
             },
+
             {
-                category:"Savings",
-                amount:income * .2
+                category:
+                    "Savings",
+
+                amount:
+                    income * .2
+
             },
+
             {
-                category:"Emergency / Buffer",
-                amount:income * .1
+                category:
+                    "Emergency / Buffer",
+
+                amount:
+                    income * .1
+
             }
+
         ];
 
     }
@@ -2175,7 +3053,9 @@ function renderBudget(
 
 
         const div =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         div.className =
@@ -2227,7 +3107,9 @@ function renderBudget(
 }
 
 
-/* ================= SPENDING ANALYSIS ================= */
+/* ==================================================
+   SPENDING ANALYSIS
+================================================== */
 
 function renderAnalysis(
     analysis,
@@ -2275,7 +3157,15 @@ function renderAnalysis(
                             value.reason ||
                             ""
                         )
-                        : String(value)
+                        : String(value),
+
+                    amount:
+                        typeof value === "object"
+                        ? (
+                            value.amount ||
+                            0
+                        )
+                        : 0
 
                 })
             );
@@ -2292,7 +3182,8 @@ function renderAnalysis(
 
                     category:category,
 
-                    amount:Number(amount),
+                    amount:
+                        Number(amount),
 
                     status:
                         Number(amount) > 5000
@@ -2352,7 +3243,9 @@ function renderAnalysis(
 
 
         const div =
-            document.createElement("div");
+            document.createElement(
+                "div"
+            );
 
 
         div.className =
@@ -2396,6 +3289,14 @@ function renderAnalysis(
                         ${money(amount)}
                     </span>
 
+                    ${
+                        item.percentage !== undefined
+                        ? `<span>
+                            ${Number(item.percentage).toFixed(1)}%
+                           </span>`
+                        : ""
+                    }
+
                 </div>
 
                 <p>
@@ -2414,7 +3315,9 @@ function renderAnalysis(
 }
 
 
-/* ================= SUGGESTIONS ================= */
+/* ==================================================
+   SUGGESTIONS
+================================================== */
 
 function renderSuggestions(
     suggestions
@@ -2453,6 +3356,7 @@ function renderSuggestions(
                         ? (
                             value.description ||
                             value.message ||
+                            value.recommendation ||
                             ""
                         )
                         : String(value),
@@ -2477,7 +3381,8 @@ function renderSuggestions(
         items = [
 
             {
-                title:"Build an emergency fund",
+                title:
+                    "Build an emergency fund",
 
                 description:
                     "Try to save a fixed percentage of your monthly income before discretionary spending.",
@@ -2487,7 +3392,8 @@ function renderSuggestions(
             },
 
             {
-                title:"Review discretionary expenses",
+                title:
+                    "Review discretionary expenses",
 
                 description:
                     "Look for avoidable dining and entertainment expenses and redirect part of them to savings.",
@@ -2497,7 +3403,8 @@ function renderSuggestions(
             },
 
             {
-                title:"Track spending weekly",
+                title:
+                    "Track spending weekly",
 
                 description:
                     "Review your expenses every week to identify categories that are increasing unexpectedly.",
@@ -2514,12 +3421,16 @@ function renderSuggestions(
     items.forEach(item=>{
 
         const li =
-            document.createElement("li");
+            document.createElement(
+                "li"
+            );
 
 
         const title =
             item.title ||
+            item.suggestion ||
             item.name ||
+            item.recommendation ||
             "Saving Recommendation";
 
 
@@ -2585,43 +3496,351 @@ function renderSuggestions(
 }
 
 
-/* ================= SECURITY ================= */
+/* ==================================================
+   PDF
+================================================== */
 
-function escapeHTML(value){
+function saveReportPDF(){
 
-    return String(value ?? "")
-        .replace(/&/g,"&amp;")
-        .replace(/</g,"&lt;")
-        .replace(/>/g,"&gt;")
-        .replace(/"/g,"&quot;")
-        .replace(/'/g,"&#039;");
+    if(!currentReportData){
+
+        alert(
+            "Please analyse your finances first."
+        );
+
+        return;
+
+    }
+
+
+    window.print();
 
 }
 
 
-/* ================= NAV ACTIVE ================= */
+/* ==================================================
+   HISTORY
+================================================== */
 
-document
-    .querySelectorAll(".nav a")
-    .forEach(link=>{
+async function loadHistory(){
 
-        link.addEventListener(
-            "click",
-            function(){
-
-                document
-                    .querySelectorAll(".nav a")
-                    .forEach(a =>
-                        a.classList.remove("active")
-                    );
-
-
-                this.classList.add("active");
-
-            }
+    const container =
+        document.getElementById(
+            "historyList"
         );
 
+
+    container.innerHTML = `
+        <div class="empty-history">
+            <i class="fa-solid fa-spinner fa-spin"></i>
+            Loading history...
+        </div>
+    `;
+
+
+    try{
+
+        const response =
+            await fetch("/history");
+
+
+        const history =
+            await response.json();
+
+
+        if(!response.ok){
+
+            throw new Error(
+                history.error ||
+                "Could not load history."
+            );
+
+        }
+
+
+        if(!Array.isArray(history) || history.length === 0){
+
+            container.innerHTML = `
+                <div class="empty-history">
+                    <i class="fa-solid fa-clock-rotate-left"></i>
+                    <br><br>
+                    No analysis history yet.
+                </div>
+            `;
+
+            return;
+
+        }
+
+
+        container.innerHTML = "";
+
+
+        history.forEach(record=>{
+
+            const item =
+                document.createElement(
+                    "div"
+                );
+
+
+            item.className =
+                "history-item";
+
+
+            const expenses =
+                record.expenses || {};
+
+
+            const expenseText =
+                Object.entries(expenses)
+                .map(
+                    ([category,amount]) =>
+                        `${escapeHTML(category)}: ${money(amount)}`
+                )
+                .join(" • ");
+
+
+            item.innerHTML = `
+
+                <div class="history-top">
+
+                    <strong>
+                        Financial Analysis
+                    </strong>
+
+                    <span class="history-date">
+                        <i class="fa-regular fa-clock"></i>
+                        ${escapeHTML(record.created_at || "")}
+                    </span>
+
+                </div>
+
+                <div class="history-values">
+
+                    <span>
+                        Income:
+                        <strong>
+                            ${money(record.income)}
+                        </strong>
+                    </span>
+
+                    <span>
+                        Expenses:
+                        <strong>
+                            ${money(record.total_expenses)}
+                        </strong>
+                    </span>
+
+                    <span>
+                        Savings:
+                        <strong>
+                            ${money(
+                                Math.max(
+                                    0,
+                                    Number(record.income) -
+                                    Number(record.total_expenses)
+                                )
+                            )}
+                        </strong>
+                    </span>
+
+                </div>
+
+                <div class="history-goal">
+
+                    Goal:
+                    ${escapeHTML(
+                        record.goal ||
+                        "Monthly savings"
+                    )}
+
+                </div>
+
+                <div style="
+                    margin-top:8px;
+                    color:var(--muted);
+                    font-size:10px;
+                    line-height:1.6;
+                ">
+
+                    ${expenseText}
+
+                </div>
+
+                <button
+                    class="history-btn"
+                    onclick='loadHistoryRecord(${JSON.stringify(record)})'>
+
+                    <i class="fa-solid fa-eye"></i>
+                    View Analysis
+
+                </button>
+
+            `;
+
+
+            container.appendChild(item);
+
+        });
+
+
+    }catch(error){
+
+        console.error(error);
+
+
+        container.innerHTML = `
+
+            <div class="empty-history">
+
+                Unable to load history.
+
+                <br><br>
+
+                <button
+                    class="action-btn"
+                    onclick="loadHistory()">
+
+                    Try Again
+
+                </button>
+
+            </div>
+
+        `;
+
+    }
+
+}
+
+
+/* ==================================================
+   VIEW HISTORY RECORD
+================================================== */
+
+function loadHistoryRecord(record){
+
+    const expenses =
+        record.expenses || {};
+
+
+    const goal =
+        record.goal || "Monthly savings";
+
+
+    const income =
+        Number(record.income) || 0;
+
+
+    const totalExpenses =
+        Number(record.total_expenses) || 0;
+
+
+    const savings =
+        Math.max(
+            0,
+            income - totalExpenses
+        );
+
+
+    updateDashboard(
+        income,
+        totalExpenses,
+        savings,
+        goal
+    );
+
+
+    document.getElementById(
+        "income"
+    ).value =
+        income;
+
+
+    document.getElementById(
+        "food"
+    ).value =
+        expenses.Food || 0;
+
+
+    document.getElementById(
+        "transport"
+    ).value =
+        expenses.Transport || 0;
+
+
+    document.getElementById(
+        "dining"
+    ).value =
+        expenses.Dining || 0;
+
+
+    document.getElementById(
+        "entertainment"
+    ).value =
+        expenses.Entertainment || 0;
+
+
+    document.getElementById(
+        "goal"
+    ).value =
+        goal;
+
+
+    document.getElementById(
+        "monthlySummary"
+    ).scrollIntoView({
+        behavior:"smooth",
+        block:"start"
     });
+
+}
+
+
+/* ==================================================
+   NAVIGATION
+================================================== */
+
+document
+.querySelectorAll(".nav a")
+.forEach(link=>{
+
+    link.addEventListener(
+        "click",
+        function(){
+
+            document
+            .querySelectorAll(".nav a")
+            .forEach(a =>
+                a.classList.remove(
+                    "active"
+                )
+            );
+
+
+            this.classList.add(
+                "active"
+            );
+
+        }
+    );
+
+});
+
+
+/* ==================================================
+   LOAD HISTORY ON PAGE LOAD
+================================================== */
+
+document.addEventListener(
+    "DOMContentLoaded",
+    function(){
+
+        loadHistory();
+
+    }
+);
 
 </script>
 
